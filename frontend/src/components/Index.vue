@@ -42,7 +42,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="confirmar btn" data-bs-dismiss="modal" v-on:click="goToTal">Iniciar Sesión</button>
+                            <button type="submit" class="confirmar btn" data-bs-dismiss="modal" >Iniciar Sesión</button>
                    </div>
                 </form>
                 </div>
@@ -56,8 +56,9 @@
               <h5 class="modal-title">Registro</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form v-on:submit.prevent="registrarse">
+            
+                <form>
+                  <div class="modal-body">
                     <div class="form-group">
                       <div class="form-group">
                       <label>NIT</label>
@@ -129,12 +130,13 @@
                           required
                       />
                     </div>
+                  </div> 
+                  <div class="form-group  modal-footer" >
+              <button class="confirmar btn" data-bs-dismiss="modal" v-on:click="registrarse">Registrar</button>
+            </div> 
                 </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="submit" class="confirmar btn" data-bs-dismiss="modal">Registrar</button>
-            </div>
+            
+            
           </div>
         </div>
       </div>
@@ -267,7 +269,7 @@
     </div>
 </template>
 <script>
-/*import axios from "axios";*/
+import axios from "axios"
 export default {
   data() {
  return {
@@ -290,7 +292,7 @@ export default {
               
         },
         registrarse() {
-                let apiURL = "https://localhost:4000/usuarios/crear-empresa";
+                let apiURL = "http://localhost:4000/usuarios/crear-empresa";
                 axios
                 .post(apiURL, this.empresa)
                 .then((res) => {

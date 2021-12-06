@@ -1,93 +1,4 @@
 <template>
-    <div>
-      <div>
-        <header>
-          <div class="logo">
-            <img src="../assets/logo-requersalud.png" alt="Logo Colombia Emprende">
-          </div>
-          <div class="iniciar_sesion">
-              <button type="button" class="iniciar_text btn" data-bs-toggle="modal" data-bs-target="#Modal03">
-              Editar mi Cuenta
-              </button>
-              <button type="button" class="iniciar_text btn">
-                <a href="index.html">Cerrar Sesión</a>
-              </button>
-          </div>
-          <div class="modal fade" id="Modal03" tabindex="-1" aria-labelledby="Registro" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Editar Perfil</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="">
-                        <div class="form-group">
-                          <label>Razón Social</label>
-                          <input
-                              type="text"
-                              placeholder="Ingrese la razón social"
-                              class="form-control"                          
-                              required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label>NIT</label>
-                          <input
-                              type="text"
-                              placeholder="Ingrese el NIT"
-                              class="form-control"                          
-                              required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label>Dirección</label>
-                          <input
-                              type="text"
-                              placeholder="Ingrese la dirección"
-                              class="form-control"                          
-                              required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label>Representante Legal</label>
-                          <input
-                              type="text"
-                              placeholder="Ingrese el nombre del representante legal"
-                              class="form-control"                          
-                              required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label>Celular</label>
-                          <input
-                              type="text"
-                              placeholder="Ingrese su número de celular"
-                              class="form-control"                          
-                              required
-                          />
-                        </div>
-                        <div class="form-group">
-                          <label>Contraseña</label>
-                          <input
-                              type="password"
-                              placeholder="Ingrese la contraseña de registro"
-                              class="form-control"                          
-                              required
-                          />
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="iniciar_text btn" data-bs-dismiss="modal">Guardar Cambios</button>
-                </div>     
-              </div>
-            </div>
-          </div>
-        </header>
-        <div class="fondo1"></div>
-        <main>
 <div>
     <div class="fondo1"></div>
     <div class="row justify-content-center">
@@ -114,7 +25,7 @@
                       </p>
                       <div class="row justify-content-evenly">
                         <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                        <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[0]"></div>
+                        <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[0].autoevaluacion"></div>
                       </div>
                     </div>
                   </div>
@@ -132,7 +43,7 @@
                       </p>
                       <div class="row justify-content-evenly">
                         <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                        <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[1]"></div>
+                        <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[1].autoevaluacion"></div>
                       </div>
                     </div>
                   </div>
@@ -149,7 +60,7 @@
                       </p>
                       <div class="row justify-content-evenly">
                         <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                        <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[2]"></div>
+                        <div class="col-3 m-2"><input type="checkbox" v-model="evaluacion.lista_requisitos[2].autoevaluacion"></div>
                       </div>
                     </div>
                   </div>
@@ -167,7 +78,7 @@
                       </p>
                       <div class="row justify-content-evenly">
                         <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                        <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[3]"></div>
+                        <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[3].autoevaluacion"></div>
                       </div>
                     </div>
                   </div>
@@ -184,7 +95,7 @@
                                 Deben disponerse de suficientes, adecuados y bien ubicados recipientes así como de locales e instalaciones si es del caso para el almacenamiento de los residuos sólidos, conforme a lo establecido en las normas sanitarias vigentes. Debe disponerse de recipientes de material sanitario para el almacenamiento de desperdicios orgánicos debidamente tapados, alejados del lugar donde se preparan los alimentos y deben ser removidos, lavados y desinfectados frecuentemente.</p>
                             <div class="row justify-content-evenly">
                                 <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                                <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[4]"></div>
+                                <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[4].autoevaluacion"></div>
                             </div>
                         </div>
                     </div>
@@ -201,7 +112,7 @@
                                         El recibo de insumos e ingredientes para la preparación y servido de alimentos se hará en un lugar limpio y protegido de la contaminación ambiental y se almacenarán en recipientes adecuados. </p>
                             <div class="row justify-content-evenly">
                                 <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                                <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[5]"></div>
+                                <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[5].autoevaluacion"></div>
                             </div>
                         </div>
                     </div>
@@ -218,7 +129,7 @@
                             </p>
                             <div class="row justify-content-evenly">
                                 <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                                <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[6]"></div>
+                                <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[6].autoevaluacion"></div>
                             </div>
                         </div>
                     </div>
@@ -235,7 +146,7 @@
                                       Los alimentos perecederos, tales como, leche y sus derivados, carne y preparados, productos de la pesca deben almacenarse en recipientes separados, bajo condiciones de refrigeración y/o congelación y no podrán almacenarse conjuntamente con productos preparados o listos para el consumo con el fin de evitar la contaminación cruzada.</p>
                             <div class="row justify-content-evenly">
                                 <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                                <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[7]"></div>
+                                <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[7].autoevaluacion"></div>
                             </div>
                         </div>
                     </div>
@@ -251,7 +162,7 @@
                             <p>El piso de las áreas húmedas de elaboración debe tener una pendiente mínima de 2% y al menos un drenaje de 10 cm de diámetro por cada 40 m2 de área servida; mientras que en las áreas de baja humedad ambiental y en los almacenes, la pendiente mínima será del 1% hacia los drenajes, se requiere de al menos un drenaje por cada 90 m2 de área servida. Las hortalizas y frutas que se consuman deben someterse a lavado y desinfección con sustancias autorizadas por el Ministerio de Salud y Protección Social. El lavado y desinfección de utensilios debe hacerse con agua potable corriente, jabón o detergente y cepillo y con especial cuidado en las superficies donde se pican o fraccionan los alimentos, las cuales deben estar en buen estado de conservación e higiene; las superficies para el picado deben ser de material sanitario, de preferencia plástico, nylon, polietileno o teflón.</p>
                             <div class="row justify-content-evenly">
                                 <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                                <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[8]"></div>
+                                <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[8].autoevaluacion"></div>
                             </div>
                         </div>
                     </div>
@@ -267,7 +178,7 @@
                             <p>Los alimentos o materias primas crudos, tales como, hortalizas, frutas, carnes y productos hidrobiológicos que se utilicen en la preparación de los alimentos deben ser lavados con agua potable corriente antes de su preparación. Se prohíbe el almacenamiento de sustancias peligrosas en la cocina, en las áreas de preparación de los alimentos o en las áreas de almacenamiento de materias primas.</p>
                                 <div class="row justify-content-evenly">
                                     <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                                    <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[9]"></div>
+                                    <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[9].autoevaluacion"></div>
                                 </div>
                         </div>
                     </div>
@@ -283,7 +194,7 @@
                             <p>Los equipos y utensilios empleados en los restaurantes y establecimientos gastronómicos, deben cumplir con las condiciones establecidas en el Capítulo II de la presente resolución. La limpieza y desinfección de los utensilios que tengan contacto con los alimentos se hará en tal forma y con elementos o productos que no generen ni dejen sustancias peligrosas durante su uso. Esta desinfección debe realizarse mediante la utilización de agua caliente, vapor de agua o sustancias químicas autorizadas para este efecto. Cuando los establecimientos no cuenten con agua y equipos en cantidad y calidad suficientes para el lavado y desinfección, los utensilios que se utilicen deben ser desechables con el primer uso.</p>
                             <div class="row justify-content-evenly">
                                 <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                                <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[10]"></div>
+                                <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[10].autoevaluacion"></div>
                             </div>
                         </div>
                     </div>
@@ -301,7 +212,7 @@
                                         Las paredes deben ser de colores claros, materiales resistentes, impermeables, no absorbentes y de fácil limpieza y desinfección. Además hasta una altura adecuada, las mismas deben poseer acabado liso y sin grietas, pueden recubrirse con material cerámico o similar o con pinturas plásticas que reúnan los requisitos antes indicados.</p>
                             <div class="row justify-content-evenly">
                                 <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                                <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[11]"></div>
+                                <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[11].autoevaluacion"></div>
                             </div>
                         </div>
                     </div>
@@ -318,105 +229,13 @@
                                       El personal que está directamente vinculado a la preparación o servido de los alimentos no debe manipular dinero simultáneamente. </p>                              
                             <div class="row justify-content-evenly">
                                 <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                                <div class="col-3 m-2"><input type="checkbox" v-model="empresa.autoevaluacion[12]"></div>
+                                <div class="col-3 m-2"><input type="checkbox" v-model="evaluacion.lista_requisitos[12].autoevaluacion"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-            <!---cierre acoridion--->
-            </div>
-            <div class="row justify-content-center m-3">
-             <button type="submit" class="guardar btn m-2" v-on:click="test">Guardar Cambios</button>
-             <button type="submit" class="ver btn m-2" v-on:click="test">Ver resultados</button>
             </div>
         </div>
     </div>
 </div>
-        </main>
-    <footer>
-        <div class="d-flex flex-row justify-content-center">
-            <div class="col-4 m-2 p-3">
-              <h5>En colaboración con:</h5>
-              <span>
-                <a href="https://mintic.gov.co/portal/inicio/" target="_blank"><img class="logos-footer" src="../assets/logo-mintic.png" alt=""></a>
-                <a href="https://www.misiontic2022.gov.co/portal/" target="_blank"><img class="logos-footer" src="../assets/logo-mision.png" alt=""></a>
-                <a href="https://www.utp.edu.co/" target="_blank"><img class="logos-footer" src="../assets/logo-utp.png" alt=""></a>
-              </span> 
-            </div>
-            <div class="col-3 m-2 p-3">
-              <h5>Siguenos en:</h5>
-              <div class="d-flex flex-row">
-                <a href="https://www.facebook.com/Colombia-Emprende-109565371475068" target="_blank">
-                  <svg xmlns="http://www.w3.org/2000/svg"  class="iconos-footer bi bi-facebook" viewBox="0 0 16 16">
-                    <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-                  </svg>
-                </a>
-                <a href="https://www.instagram.com/colombiaemprende5/" target="_blank">
-                  <svg xmlns="http://www.w3.org/2000/svg"  class="iconos-footer bi bi-instagram" viewBox="0 0 16 16">
-                    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                  </svg>
-                </a>  
-                <a href="https://twitter.com/ColombiaEmpren5" target="_blank">
-                  <svg xmlns="http://www.w3.org/2000/svg"  class="iconos-footer bi bi-twitter" viewBox="0 0 16 16">
-                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-                  </svg>
-                </a>
-                <a href="https://www.youtube.com/channel/UCjNR0g-WdYRHMZZBRtl5JUA" target="_blank">
-                  <svg xmlns="http://www.w3.org/2000/svg"  class="iconos-footer bi bi-youtube" viewBox="0 0 16 16">
-                    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
-                  </svg>
-                </a>
-              </div> 
-            </div>
-            <div class="col-3 m-2 p-3">
-              <h5>Acerca de:</h5>
-              <span>
-                <a href="html/acerca.html" target="_blank"><img class="logo-footer-acerca" src="../assets/logo-requersalud.png" alt=""></a>
-              </span> 
-            </div>   
-          </div>
-          <div class=baseDerechos>
-            <div>Copyright 2021  | |  Todos los derechos reservados  | |  
-              <a href="html/politicas.html" target="_blank"  id="politica"> Política de Tratamiento de Datos Personales</a>
-            </div>
-          </div>
-    </footer>
-  </div>
-    </div>
 </template>
-<script>
-import axios from "axios";
-export default {
-  data() {
-    return {
-      nit:sessionStorage.getItem("nit"),
-      empresa:{
-        autoevaluacion: [],
-      },  
-      evaluacion:{
-        lista_requisitos: [],
-      },
-    };
- },
-   methods:{
-      test(){
-        let apiURL = "localhost:4000/evaluacion/actualizar-empresa";
-                axios.defaults.headers.common["Authorization"] = localStorage.getItem(
-                  "jwtToken"
-                );
-                axios
-                .put(apiURL, this.empresa)
-                .catch((err) => {
-                  this.$router.push({name: "restaurante"});
-                  console.log(err);
-                });
-      },
-      logout() {
-      localStorage.removeItem("jwtToken");
-      this.$router.push({
-        name: "index"
-      });
-    }
-   }
-};
-</script>

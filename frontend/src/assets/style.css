@@ -147,6 +147,29 @@ header{
     object-fit:cover;
     opacity: 0.2;
   }
+  
+  .logo_admin img{
+    margin: 15px 10px 30px 10px;
+    height: 115px;
+  }
+  .guardar {
+    width: 180px;
+    color: rgb(231, 238, 243);
+    background-color: #041c3b;
+  }
+  .guardar:hover {
+    color: rgb(255, 255, 255);
+    background-color: #17365e;
+  }
+  .ver {
+    width: 180px;
+    color: rgb(231, 238, 243);
+    background-color: #173a52;
+  }
+  .ver:hover {
+    color: rgb(255, 255, 255);
+    background-color: #455d7e;
+  }
 
 
   

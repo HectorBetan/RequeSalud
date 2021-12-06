@@ -9,14 +9,19 @@ const routes = [
         component: () => import("../components/Index"),
     },
     {
-        path: "/restaurante/:id",
+        path: "/restaurante",
         name: "restaurante",
         component: () => import("../components/Restaurante"),
     },
     {
-        path: "/inspector/:id",
+        path: "/inspector",
         name: "inspector",
         component: () => import("../components/Inspector"),
+    },
+    {
+        path: "/admin",
+        name: "admin",
+        component: () => import("../components/Admin"),
     },
 
     ];
