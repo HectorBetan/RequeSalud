@@ -91,6 +91,7 @@
 
     <div class="row justify-content-center">
         <div class="m-4 w-75 mb-0">
+            <span><h5>Nit:</h5><h4 v-show="nit"></h4></span>
             <h1>Autoevaluación</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem hic iusto magni quasi, ad aspernatur, dicta nostrum molestias recusandae minima fuga id harum veritatis libero. Animi quaerat praesentium eos velit.
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium tempora pariatur totam tempore quasi quisquam alias voluptatibus doloremque. Ad tempora voluptates saepe minima deleniti sapiente accusantium doloremque, obcaecati nemo itaque?
@@ -376,20 +377,26 @@
 </template>
 <script>
 export default {
-  empresa:{},  
-  evaluacion:{
-    normatividad: String,
-    lista_requisitos: [{numero_requisito: Number, descripcion: String, autoevaluacion:Boolean,auditoria:Boolean}],
-    observaciones:String,
-    id_empresa:String,
-    created() {
-      let apiURL = "https://http://localhost:4000/usuarios";
-      axios
-        .get(apiURL)
-        .then((res) => {this.empresa = res.data;})
-        .catch((error) => {console.log(error);});
-    },
-  },
+  data() {
+    return {
+      nit: String,
+      empresa:{},  
+      evaluacion:{
+        normatividad: String,
+        lista_requisitos: [{autoevaluacion:Boolean}],
+        observaciones:String,
+        id_empresa:String,
+      },
+      created() {
+        nit:sessionStorage.getItem("nit");
+          /*let apiURL = "https://http://localhost:4000/usuarios";
+          axios
+            .get(apiURL)
+            .then((res) => {this.empresa = res.data;})
+            .catch((error) => {console.log(error);});*/
+      },
+    };
+ },
    methods:{
       evaluacion(){
         let apiURL = "localhost:4000/evaluacion/crear-evaluacion";

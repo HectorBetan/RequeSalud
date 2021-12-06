@@ -269,14 +269,18 @@
 <script>
 /*import axios from "axios";*/
 export default {
+  data() {
+ return {
   empresa:{},
+  };
+ },
     methods: {
         onSubmit() { 
             axios
             .post(`https://localhost:4000/usuarios/sesion-usuario`, this.emprendedor)
             .then((res) => {
+              sessionStorage.setItem("nit", res.data.nit),
               localStorage.setItem("jwtToken", res.data.token);
-
               this.$router.push(`/restaurante`); 
               })
             .catch(error => {
@@ -290,6 +294,7 @@ export default {
                 axios
                 .post(apiURL, this.empresa)
                 .then((res) => {
+                  sessionStorage.setItem("nit", res.data.nit),
                   localStorage.setItem("jwtToken", res.data.token),
                   this.$router.push("/restaurante")}) 
                 .catch((err) => {

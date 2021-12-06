@@ -314,13 +314,13 @@
                                 El personal que está directamente vinculado a la preparación o servido de los alimentos no debe manipular dinero simultáneamente. </p>                              
                             <div class="row justify-content-evenly">
                                 <div class="col-7 m-2"><h5>¿Cumple este requerimiento?</h5></div>
-                                <div class="col-3 m-2"><input type="checkbox" v-model="lista_requisitos[12].auditoria"></div>
+                                <div class="col-3 m-2"><input type="checkbox" v-model="evaluacion.lista_requisitos[12].auditoria"></div>
                             </div>
                           </div>
                     </div>
                   </div>
               
-              <textarea class="mt-4 p-2" name="observaciones" id="observaciones" cols="90" rows="5">Ingrese aqui la observación</textarea>
+              <textarea class="mt-4 p-2" name="observaciones" id="observaciones" cols="90" rows="5" v-model="evaluacion.observaciones">Ingrese aqui la observación</textarea>
         </div>
     </div>
     </div>
@@ -383,13 +383,13 @@ export default {
     lista_requisitos: [{numero_requisito: Number, descripcion: String, autoevaluacion:Boolean,auditoria:Boolean}],
     observaciones:String,
     id_empresa:String,
-    created() {
+    /*created() {
       let apiURL = "https://http://localhost:4000/usuarios";
       axios
         .get(apiURL)
         .then((res) => {this.empresa = res.data;})
         .catch((error) => {console.log(error);});
-    },
+    },*/
   },
    methods:{
       auditoria(){
