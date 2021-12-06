@@ -57,39 +57,34 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form v-on:submit.prevent="registrarse">
                     <div class="form-group">
-                      <label>Razón Social</label>
-                      <input
-                          type="text"
-                          placeholder="Ingrese la razón social"
-                          class="form-control"                          
-                          required
-                      />
-                    </div>
-                    <div class="form-group">
+                      <div class="form-group">
                       <label>NIT</label>
                       <input
                           type="text"
                           placeholder="Ingrese el NIT"
-                          class="form-control"                          
+                          class="form-control"
+                          v-model="empresa.nit"                            
                           required
                       />
                     </div>
+                      <label>Razón Social</label>
+                      <input
+                          type="text"
+                          placeholder="Ingrese la razón social"
+                          class="form-control"  
+                          v-model="empresa.razon_social"  
+                          required
+                      />
+                    </div>
+                    
                     <div class="form-group">
                       <label>Dirección</label>
                       <input
                           type="text"
                           placeholder="Ingrese la dirección"
-                          class="form-control"                          
-                          required
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label>Representante Legal</label>
-                      <input
-                          type="text"
-                          placeholder="Ingrese el nombre del representante legal"
+                          v-model="empresa.direccion"  
                           class="form-control"                          
                           required
                       />
@@ -99,7 +94,18 @@
                       <input
                           type="text"
                           placeholder="Ingrese su número de celular"
-                          class="form-control"                          
+                          class="form-control"
+                          v-model="empresa.telefono"                          
+                          required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label>Representante Legal</label>
+                      <input
+                          type="text"
+                          placeholder="Ingrese el nombre del representante legal"
+                          class="form-control"
+                          v-model="empresa.representante_legal"                             
                           required
                       />
                     </div>
@@ -108,7 +114,8 @@
                       <input
                           type="email"
                           placeholder="Ingrese el e-mail de resgistro"
-                          class="form-control"                          
+                          class="form-control"    
+                          v-model="empresa.email"                         
                           required
                       />
                     </div>
@@ -117,7 +124,8 @@
                       <input
                           type="password"
                           placeholder="Ingrese la contraseña de registro"
-                          class="form-control"                          
+                          class="form-control"
+                          v-model="empresa.clave"                             
                           required
                       />
                     </div>
@@ -261,10 +269,34 @@
 <script>
 /*import axios from "axios";*/
 export default {
+  empresa:{},
     methods: {
-        goToTal() {  
-              this.$router.push(`/restaurante/:id`); 
-        }
+        onSubmit() { 
+            axios
+            .post(`https://localhost:4000/usuarios/sesion-usuario`, this.emprendedor)
+            .then((res) => {
+              localStorage.setItem("jwtToken", res.data.token);
+
+              this.$router.push(`/restaurante`); 
+              })
+            .catch(error => {
+              window.alert("Usuario o contraseña incorrectos");
+              console.log(error);
+            }); 
+              
+        },
+        registrarse() {
+                let apiURL = "https://localhost:4000/usuarios/crear-empresa";
+                axios
+                .post(apiURL, this.empresa)
+                .then((res) => {
+                  localStorage.setItem("jwtToken", res.data.token),
+                  this.$router.push("/restaurante")}) 
+                .catch((err) => {
+                  this.$router.push({name: "index"});
+                  console.log(err);
+                });    
+            }
     }   
 }
 </script>
